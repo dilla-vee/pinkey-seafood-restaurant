@@ -1623,6 +1623,8 @@ footer {
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
+  flex-wrap: wrap;
+  word-break: break-all;
 }
 
 .brief-contact-link svg {
@@ -1665,7 +1667,8 @@ footer {
   align-items: center;
   gap: 0.75rem;
   cursor: pointer;
-  width: 100%;
+  flex-grow: 1;
+  min-width: 0;
 }
 
 .cart-item-checkbox-wrapper input[type="checkbox"] {
@@ -2028,6 +2031,9 @@ footer {
 .policy-item {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   font-size: 0.82rem;
   color: var(--text-secondary);
 }
@@ -2065,5 +2071,116 @@ footer {
 
 .pulse-highlight {
   animation: cardPulse 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   MOBILE-SPECIFIC LAYOUT & COLLAPSIBLE RULES
+   ========================================================================== */
+
+/* Mobile Collapsible wrappers */
+.mobile-menu-toggle-wrapper,
+.mobile-activities-toggle-wrapper {
+  display: none;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  /* Give container more space on mobile */
+  .container {
+    padding: 0 1rem;
+  }
+
+  /* Reduce card padding on mobile to avoid squeezing */
+  .planner-card {
+    padding: 1.25rem 1rem;
+  }
+
+  /* Flex wrap direct contacts */
+  .contact-brief-card {
+    padding: 1rem;
+  }
+  
+  .brief-contact-link {
+    font-size: 0.85rem;
+  }
+
+  /* Show toggle buttons */
+  .mobile-menu-toggle-wrapper,
+  .mobile-activities-toggle-wrapper {
+    display: flex;
+  }
+  
+  /* Collapsed states hiding elements */
+  .menu-section.collapsed-state .menu-tabs,
+  .menu-section.collapsed-state #menu-grid {
+    display: none !important;
+  }
+  
+  .menu-section.collapsed-state .menu-header p {
+    margin-bottom: 0 !important;
+  }
+
+  #activities.collapsed-state .activities-grid {
+    display: none !important;
+  }
+
+  /* Booking form accordion styles */
+  .planner-card-title.cottage-toggle-title,
+  .planner-card-title.activity-toggle-title {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 0.75rem;
+    margin-bottom: 0;
+  }
+  
+  /* Show arrow icon on mobile */
+  .planner-card-title .mobile-accordion-arrow {
+    display: inline-block !important;
+    font-size: 0.8rem;
+    transition: transform var(--transition-fast);
+    color: var(--text-muted);
+  }
+  
+  /* Hide selector grids when collapsed */
+  .planner-card.collapsed-state .cart-cottages-grid,
+  .planner-card.collapsed-state .cart-activities-grid {
+    display: none !important;
+  }
+  
+  .planner-card.collapsed-state .planner-card-title {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .planner-card.collapsed-state .planner-card-title .mobile-accordion-arrow {
+    transform: rotate(-90deg);
+  }
+  
+  /* Space out selector card titles when collapsed */
+  .planner-card.collapsed-state {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 992px) {
+  /* Prevent sticky invoice from overlapping single column content on tablet/mobile */
+  .live-cart-card {
+    position: relative !important;
+    top: auto !important;
+    z-index: 1 !important;
+    margin-top: 1.5rem;
+  }
+}
+
+@media (min-width: 769px) {
+  /* Hide accordion arrow on desktop */
+  .planner-card-title .mobile-accordion-arrow {
+    display: none !important;
+  }
 }
 

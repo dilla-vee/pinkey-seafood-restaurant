@@ -481,12 +481,15 @@ app.innerHTML = `
   </section>
 
   <!-- Menu Section -->
-  <section id="menu" class="menu-section">
+  <section id="menu" class="menu-section collapsed-state">
     <div class="container">
       <div class="menu-header">
         <span class="hero-tagline">Restaurant Menu</span>
         <h2 class="section-title">PiNKeY 19 Seafood Recipes</h2>
         <p style="text-align: center; max-width: 600px; margin: -0.5rem auto 2rem;">Fresh marine catches grilled or prepared in rich local curries. All prices in Kenyan Shillings (KSH).</p>
+        <div class="mobile-menu-toggle-wrapper">
+          <button id="mobile-menu-toggle-btn" class="btn btn-primary" type="button">Browse Full Menu (19 Items) ↓</button>
+        </div>
         <div class="menu-tabs">
           <button class="tab-btn active" data-category="all">All Dishes</button>
           <button class="tab-btn" data-category="starters">Starters & Calamari</button>
@@ -515,12 +518,15 @@ app.innerHTML = `
   </section>
 
   <!-- Activities Section (New) -->
-  <section id="activities" class="menu-section">
+  <section id="activities" class="menu-section collapsed-state">
     <div class="container">
       <div class="menu-header">
         <span class="hero-tagline">Tours & Sports</span>
         <h2 class="section-title">Coastal Activities & Adventures</h2>
         <p style="text-align: center; max-width: 600px; margin: -0.5rem auto 3rem;">Make memories. Book from our curated list of 11 Diani excursions, walks, boat trips, and water experiences.</p>
+        <div class="mobile-activities-toggle-wrapper">
+          <button id="mobile-activities-toggle-btn" class="btn btn-primary" type="button">Explore Activities (11 Options) ↓</button>
+        </div>
       </div>
       <div class="activities-grid">
         <!-- Dynamic Activities Load Here -->
@@ -690,16 +696,22 @@ app.innerHTML = `
           <!-- Column 2: Cart Selection & Live Invoice -->
           <div class="planner-column cart-column">
             <!-- Cottage Cart Selection -->
-            <div class="planner-card">
-              <h3 class="planner-card-title">🏡 Select Cottages</h3>
+            <div class="planner-card cottage-selector-card collapsed-state">
+              <h3 class="planner-card-title cottage-toggle-title">
+                <span>🏡 Select Cottages</span>
+                <span class="mobile-accordion-arrow">▼</span>
+              </h3>
               <div class="cart-cottages-grid">
                 <!-- Dynamically Rendered Cottages Selection Cards -->
               </div>
             </div>
             
             <!-- Activity Cart Selection -->
-            <div class="planner-card">
-              <h3 class="planner-card-title">🛶 Select Coastal Excursions</h3>
+            <div class="planner-card activity-selector-card collapsed-state">
+              <h3 class="planner-card-title activity-toggle-title">
+                <span>🛶 Select Coastal Excursions</span>
+                <span class="mobile-accordion-arrow">▼</span>
+              </h3>
               <div class="cart-activities-grid">
                 <!-- Dynamically Rendered Activities Selection Cards -->
               </div>
@@ -1101,6 +1113,49 @@ document.querySelectorAll('.nav-links a').forEach(link => {
   });
 });
 
+// Mobile Collapsible Menu and Activities Sections
+const menuSection = document.querySelector('#menu')!;
+const activitiesSection = document.querySelector('#activities')!;
+
+const mobileMenuToggleBtn = document.querySelector('#mobile-menu-toggle-btn');
+if (mobileMenuToggleBtn) {
+  mobileMenuToggleBtn.addEventListener('click', () => {
+    const isCollapsed = menuSection.classList.toggle('collapsed-state');
+    mobileMenuToggleBtn.textContent = isCollapsed 
+      ? 'Browse Full Menu (19 Items) ↓' 
+      : 'Collapse Menu ↑';
+  });
+}
+
+const mobileActivitiesToggleBtn = document.querySelector('#mobile-activities-toggle-btn');
+if (mobileActivitiesToggleBtn) {
+  mobileActivitiesToggleBtn.addEventListener('click', () => {
+    const isCollapsed = activitiesSection.classList.toggle('collapsed-state');
+    mobileActivitiesToggleBtn.textContent = isCollapsed 
+      ? 'Explore Activities (11 Options) ↓' 
+      : 'Collapse Activities ↑';
+  });
+}
+
+// Accordion Toggles for Booking Cart on Mobile
+document.querySelectorAll('.cottage-toggle-title').forEach(title => {
+  title.addEventListener('click', () => {
+    if (window.innerWidth <= 768) {
+      const parent = title.closest('.cottage-selector-card');
+      if (parent) parent.classList.toggle('collapsed-state');
+    }
+  });
+});
+
+document.querySelectorAll('.activity-toggle-title').forEach(title => {
+  title.addEventListener('click', () => {
+    if (window.innerWidth <= 768) {
+      const parent = title.closest('.activity-selector-card');
+      if (parent) parent.classList.toggle('collapsed-state');
+    }
+  });
+});
+
 // 2. Scroll Indicator Styling
 window.addEventListener('scroll', () => {
   if (window.scrollY > 20) {
@@ -1207,6 +1262,11 @@ const renderCottages = () => {
       const foundCottage = cottages.find(c => c.name.toLowerCase().includes(roomName.toLowerCase()));
       if (foundCottage) {
         cart.cottages[foundCottage.id].selected = true;
+        
+        // Expand the selector card if collapsed on mobile
+        const parentCard = document.querySelector('.cottage-selector-card');
+        if (parentCard) parentCard.classList.remove('collapsed-state');
+        
         renderCartCottages();
         updateCartTotal();
         
@@ -1252,6 +1312,10 @@ const renderActivities = () => {
       const foundAct = activities.find(a => a.name.toLowerCase().includes(actName.toLowerCase()));
       if (foundAct) {
         cart.activities[foundAct.id].selected = true;
+        
+        // Expand the selector card if collapsed on mobile
+        const parentCard = document.querySelector('.activity-selector-card');
+        if (parentCard) parentCard.classList.remove('collapsed-state');
         
         // Default participant count to current selected party size
         const partySize = parseInt(document.querySelector<HTMLSelectElement>('#booking-guests')!.value, 10);
