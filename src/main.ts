@@ -19,6 +19,8 @@ import sunsetCongoRiverImg from './assets/custom_images/sunset_congo_river.png';
 import villageRetreatImg from './assets/custom_images/village_retreat.png';
 import dianiCityTourImg from './assets/custom_images/diani_city_tour.png';
 import snorkelingSnacksImg from './assets/custom_images/snorkeling_snacks.png';
+import wasiniRobinsonBoatImg from './assets/custom_images/wasini_robinson_boat.png';
+import shuttleVanImg from './assets/custom_images/shuttle_van.png';
 
 // Vegetable Sources Menu Images
 import vegetableSourcesImg from './assets/menu/vegetable_sources.png';
@@ -339,7 +341,7 @@ const activities: Activity[] = [
     price: 'KSH. 27,000',
     description: 'Full Board Package including a custom boat ride, snorkeling, seafood meals, drinks, and a personal tour guide.',
     badge: 'Premium',
-    image: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=800&q=80'
+    image: wasiniRobinsonBoatImg
   },
   {
     id: 'act-12',
@@ -347,7 +349,7 @@ const activities: Activity[] = [
     price: 'KSH. 3,000',
     description: 'Safe, comfortable, and reliable transport shuttle service running between Nairobi and Mombasa. Price is per person.',
     badge: 'Transport',
-    image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=800&q=80'
+    image: shuttleVanImg
   }
 ];
 
@@ -570,7 +572,7 @@ app.innerHTML = `
       
       <div class="transport-grid">
         <div class="transport-visual">
-          <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=800&q=80" alt="PiNKeY 19 Luxury Transport Shuttle Van">
+          <img src="${shuttleVanImg}" alt="PiNKeY 19 Luxury Transport Shuttle Van">
           <div class="transport-badge">
             <span class="badge-icon">🚐</span>
             <div>
@@ -959,9 +961,7 @@ const cart: CartState = {
 
 // Initialize Cart State dynamically
 cottages.forEach(c => {
-  let defaultQty = 1;
-  if (c.id === 'cot-3') defaultQty = 3;
-  if (c.id === 'cot-4') defaultQty = 4;
+  const defaultQty = 1;
   cart.cottages[c.id] = { selected: false, quantity: defaultQty };
 });
 
@@ -996,15 +996,18 @@ const renderCartCottages = () => {
     
     let limitText = '';
     let disableQtyControl = false;
-    if (c.id === 'cot-1' || c.id === 'cot-2') {
+    if (c.id === 'cot-1') {
+      limitText = ' (Studio Room - Max 1 room)';
+      disableQtyControl = true;
+    } else if (c.id === 'cot-2') {
       limitText = ' (Max 1 room)';
       disableQtyControl = true;
     } else if (c.id === 'cot-3') {
-      limitText = ' (Fixed 3 rooms)';
+      limitText = ' (Whole House)';
       disableQtyControl = true;
     } else if (c.id === 'cot-4') {
-      limitText = ' (Fixed 4 rooms)';
-      disableQtyControl = true;
+      limitText = ' (Max 5 rooms)';
+      disableQtyControl = false;
     }
     
     return `
@@ -1098,8 +1101,8 @@ const updateCartTotal = () => {
     if (item && item.selected) {
       selectedItemsCount++;
       const pricePerNight = parsePrice(c.price);
-      // Multiplier is 1 for whole-house rentals (3-bedroom and VIP villa), otherwise item.quantity
-      const multiplier = (c.id === 'cot-3' || c.id === 'cot-4') ? 1 : item.quantity;
+      // Multiplier is 1 for the 3-bedroom house, otherwise item.quantity (which is 1 for Studio/1-bed, and up to 5 for Villa)
+      const multiplier = (c.id === 'cot-3') ? 1 : item.quantity;
       const subtotal = pricePerNight * nights * multiplier;
       total += subtotal;
       
@@ -1624,6 +1627,9 @@ document.addEventListener('click', (e) => {
     if (type === 'cottage') {
       const currentQty = cart.cottages[id].quantity;
       if (isPlus) {
+        if (id === 'cot-4' && currentQty >= 5) {
+          return; // Max 5 rooms for Villa
+        }
         cart.cottages[id].quantity = currentQty + 1;
       } else {
         cart.cottages[id].quantity = Math.max(1, currentQty - 1);
@@ -1808,7 +1814,7 @@ bookingForm.addEventListener('submit', (e) => {
         const item = cart.cottages[c.id];
         if (item && item.selected) {
           const price = parsePrice(c.price);
-          const multiplier = (c.id === 'cot-3' || c.id === 'cot-4') ? 1 : item.quantity;
+          const multiplier = (c.id === 'cot-3') ? 1 : item.quantity;
           const subtotal = price * nights * multiplier;
           total += subtotal;
           itemizedDetails += `- ${c.name} (${item.quantity} Room${item.quantity > 1 ? 's' : ''}) @ KSH. ${price.toLocaleString()}/night\n`;
