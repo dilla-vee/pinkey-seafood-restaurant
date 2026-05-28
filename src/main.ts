@@ -8,11 +8,17 @@ import crabImg from './assets/crab.png';
 import threeBedroomHouseImg from './assets/custom_images/three_bedroom_house.jpg';
 import privateVillaImg from './assets/custom_images/private_villa.jpg';
 import studioRoomImg from './assets/custom_images/studio_room_1.jpg';
-// import studioRoom2Img from './assets/custom_images/studio_room_2.jpg';
 import oneBedroomApartmentImg from './assets/custom_images/one_bedroom_apartment_1.jpg';
-// import oneBedroomApartment2Img from './assets/custom_images/one_bedroom_apartment_2.jpg';
-// import robinsonIslandImg from './assets/custom_images/robinson_island_1.jpg';
-// import robinsonIsland2Img from './assets/custom_images/robinson_island_2.jpg';
+
+// Imported generated images for Robinson Island & African Pool
+import glassBoatRobinsonImg from './assets/custom_images/glass_boat_robinson.png';
+import africanPoolAdventureImg from './assets/custom_images/african_pool_adventure.png';
+import wasiniIslandImg from './assets/custom_images/wasini_island.png';
+import shimbaHillsImg from './assets/custom_images/shimba_hills.png';
+import sunsetCongoRiverImg from './assets/custom_images/sunset_congo_river.png';
+import villageRetreatImg from './assets/custom_images/village_retreat.png';
+import dianiCityTourImg from './assets/custom_images/diani_city_tour.png';
+import snorkelingSnacksImg from './assets/custom_images/snorkeling_snacks.png';
 
 // Vegetable Sources Menu Images
 import vegetableSourcesImg from './assets/menu/vegetable_sources.png';
@@ -20,13 +26,11 @@ import grilledChickenImg from './assets/menu/grilled_chicken.png';
 import grilledOctopusImg from './assets/menu/grilled_octopus.png';
 import calamariImg from './assets/menu/calamari.png';
 import gingerCrabImg from './assets/menu/ginger_crab.png';
-// import rosemaryPotatoesImg from './assets/menu/rosemary_potatoes.png';
 import grilledLobsterImg from './assets/menu/grilled_lobster.png';
 import grilledKingPrawnImg from './assets/menu/grilled_king_prawn.png';
 import grilledFishFilletImg from './assets/menu/grilled_fish_fillet.png';
 import curryChickenImg from './assets/menu/curry_chicken.png';
 import fishFingerImg from './assets/menu/fish_finger.png';
-// import coconutRiceImg from './assets/menu/coconut_rice.png';
 
 // Interfaces
 interface MenuItem {
@@ -45,6 +49,7 @@ interface Activity {
   price: string;
   description: string;
   badge: string;
+  image: string;
 }
 
 interface Cottage {
@@ -250,80 +255,99 @@ const menuItems: MenuItem[] = [
 const activities: Activity[] = [
   {
     id: 'act-1',
-    name: 'Mangrove Forest Walk',
+    name: '2 Hours Glass Boat Ride to Robinson Island',
     price: 'KSH. 2,000',
-    description: 'Guided eco-walk through Diani\'s lush coastal mangroves. Explore birdlife and local marine crab ecosystems.',
-    badge: 'Eco-Tour'
+    description: 'Explore the coral reef, feed the fish, and enjoy beautiful ocean views from our signature glass-bottom boat.',
+    badge: 'Popular',
+    image: glassBoatRobinsonImg
   },
   {
     id: 'act-2',
-    name: 'Ocean Kayaking',
-    price: 'KSH. 2,500',
-    description: 'Rent premium marine kayaks to paddle through Diani\'s crystal-clear turquoise waters and coral pools.',
-    badge: 'Watersports'
+    name: 'African Pool Adventure',
+    price: 'KSH. 1,500',
+    description: 'Snorkel at the famous African Pool and venture onto the natural sand formation shaped like the map of Africa.',
+    badge: 'Snorkeling',
+    image: africanPoolAdventureImg
   },
   {
     id: 'act-3',
-    name: 'Kaya Kinondo Sacred Forest',
-    price: 'KSH. 2,000',
-    description: 'Explore the sacred heritage forest of the Mijikenda people with a traditional elder guide.',
-    badge: 'Cultural'
+    name: '1 Day Trip to Wasini Island',
+    price: 'KSH. 8,000',
+    description: 'Full-day excursion in Kisite Marine Park. Snorkeling, dolphin watching & swimming, learning Wasini traditions, and visiting Kisite-Mpunguti Marine Park.',
+    badge: 'Full Day',
+    image: wasiniIslandImg
   },
   {
     id: 'act-4',
-    name: 'Sunset Boat Cruise',
-    price: 'KSH. 1,500',
-    description: 'Sail along the coast in a traditional dhow as the sun sets behind the beautiful Shimba Hills. Refreshments included.',
-    badge: 'Romantic'
+    name: '1 Day Trip to Shimbahill Park',
+    price: 'KSH. 7,000',
+    description: 'Wildlife viewing, scenic nature trails, beautiful waterfalls, and a fresh forest atmosphere at Shimba Hills.',
+    badge: 'Nature',
+    image: shimbaHillsImg
   },
   {
     id: 'act-5',
-    name: 'Robinson Island Adventure',
-    price: 'KSH. 2,000',
-    description: 'Adventure awaits at Robinson Island! Enjoy spectacular snorkeling, coral reef exploration, fish feeding, and customizable tour packages.',
-    badge: 'Popular'
+    name: 'Sunset at the Congo River',
+    price: 'KSH. 1,500',
+    description: 'Relax on a sailing dhow boat at the beautiful Congo River while enjoying a magical sunset experience.',
+    badge: 'Sunset',
+    image: sunsetCongoRiverImg
   },
   {
     id: 'act-6',
     name: 'Village Retreat Experience',
-    price: 'KSH. 2,000',
-    description: 'An immersive half-day journey discovering local homesteads, traditional cooking, and Mijikenda dances.',
-    badge: 'Adventure'
+    price: 'KSH. 5,000',
+    description: 'Experience local culture, village life, and authentic Mijikenda coastal traditions on a guided village tour.',
+    badge: 'Cultural',
+    image: villageRetreatImg
   },
   {
     id: 'act-7',
-    name: 'Local Village & School Tour',
+    name: 'Diani City Tour',
     price: 'KSH. 2,000',
-    description: 'Support the local community on a guided cultural walk through local artisan workshops and Diani villages.',
-    badge: 'Social'
+    description: 'Explore the beauty, lifestyle, shopping spots, and hidden gems of Diani Beach town.',
+    badge: 'City Tour',
+    image: dianiCityTourImg
   },
   {
     id: 'act-8',
-    name: 'African Pool Visit',
-    price: 'KSH. 1,500',
-    description: 'Discover the famous natural tidal pool naturally shaped exactly like the map of Africa, carved into the coral cliffs.',
-    badge: 'Popular'
+    name: 'Snorkeling + Snacks Package',
+    price: 'KSH. 2,000',
+    description: 'Go snorkeling at Robinson Island accompanied by fresh tropical snacks and beverages.',
+    badge: 'Adventure',
+    image: snorkelingSnacksImg
   },
   {
     id: 'act-9',
-    name: 'Wasini Island Day Trip',
-    price: 'Citizen: KSH. 4,500 / Non-Citizen: KSH. 8,500',
-    description: 'Full-day cruise in Kisite Marine Park. Dolphin spotting, deep coral snorkeling, and local Swahili lunch included.',
-    badge: 'Full Day'
+    name: 'Bonfire + Seafood Platter',
+    price: 'KSH. 4,200',
+    description: 'A warm beach bonfire under the stars paired with a rich, delicious grilled seafood platter.',
+    badge: 'Dining',
+    image: 'https://images.unsplash.com/photo-1561490497-43bc960ac988?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'act-10',
-    name: 'Deep Sea Fishing Trip',
-    price: 'Price on Inquiry',
-    description: 'Board our fully-equipped sport fisher boat out past the reef in search of Marlin, Sailfish, and Wahoo.',
-    badge: 'Fishing'
+    name: 'Sunset Walk',
+    price: 'KSH. 2,500',
+    description: 'Walk along the beautiful sandy shoreline of Diani Beach as the sun sets over the ocean.',
+    badge: 'Popular',
+    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'act-11',
-    name: 'Scuba Diving Excursion',
-    price: 'Price on Inquiry',
-    description: 'Explore deep water reef walls, shipwrecks, and sea turtle zones. For certified divers and beginner PADI courses.',
-    badge: 'Diving'
+    name: 'Wasini & Robinson Island Boat Ride Experience',
+    price: 'KSH. 27,000',
+    description: 'Full Board Package including a custom boat ride, snorkeling, seafood meals, drinks, and a personal tour guide.',
+    badge: 'Premium',
+    image: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    id: 'act-12',
+    name: 'Nairobi ⇄ Mombasa Transport Shuttle',
+    price: 'KSH. 3,000',
+    description: 'Safe, comfortable, and reliable transport shuttle service running between Nairobi and Mombasa. Price is per person.',
+    badge: 'Transport',
+    image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=800&q=80'
   }
 ];
 
@@ -331,10 +355,10 @@ const activities: Activity[] = [
 const cottages: Cottage[] = [
   {
     id: 'cot-1',
-    name: 'Studio Room',
+    name: 'Studio Sleeping Package',
     beds: 1,
-    price: 'KSH. 7,000',
-    description: 'A cozy and modern 1-bedroom escape featuring beautiful Swahili furnishings, a private en-suite bathroom, high-speed Wi-Fi, and cooling air conditioning. Perfect for solo travelers or couples.',
+    price: 'KSH. 2,000',
+    description: 'A cozy and modern 1-bedroom escape featuring beautiful Swahili furnishings, a private en-suite bathroom, high-speed Wi-Fi, and cooling air conditioning. (Minimum 2 nights: KSH. 4,000 total)',
     amenities: ['1 Queen Bed', 'En-suite Bathroom', 'Air Conditioning', 'Free Wi-Fi', 'Garden View', 'Room Service'],
     image: studioRoomImg
   },
@@ -358,11 +382,11 @@ const cottages: Cottage[] = [
   },
   {
     id: 'cot-4',
-    name: 'Private Villa',
-    beds: 3,
-    price: 'KSH. 30,000',
-    description: 'The ultimate luxury coastal retreat. A magnificent 3-bedroom private villa featuring expansive living spaces, private lounge areas, stunning coastal views, and dedicated premium service.',
-    amenities: ['3 King Beds', 'Luxury Lounge', 'Expansive Terrace', 'Dedicated Service', 'Full Air Conditioning', 'Free Wi-Fi'],
+    name: 'VIP Luxury Package',
+    beds: 4,
+    price: 'KSH. 12,500',
+    description: 'The ultimate luxury coastal retreat. A magnificent 4-bedroom private villa featuring expansive living spaces, private lounge areas, stunning coastal views, and dedicated premium service. (Minimum 2 nights: KSH. 25,000 total)',
+    amenities: ['4 King Beds', 'Luxury Lounge', 'Expansive Terrace', 'Dedicated Service', 'Full Air Conditioning', 'Free Wi-Fi'],
     image: privateVillaImg
   }
 ];
@@ -405,6 +429,7 @@ app.innerHTML = `
         <li><a href="#menu">Restaurant Menu</a></li>
         <li><a href="#cottages">Cottages</a></li>
         <li><a href="#activities">Activities</a></li>
+        <li><a href="#transport">Transport</a></li>
         <li><a href="#reservation">Bookings</a></li>
       </ul>
       <div class="nav-actions">
@@ -534,6 +559,72 @@ app.innerHTML = `
     </div>
   </section>
 
+  <!-- Transport Section -->
+  <section id="transport" class="about-section" style="background-color: var(--bg-card); border-top: 1px solid var(--border-light);">
+    <div class="container">
+      <div class="menu-header">
+        <span class="hero-tagline">Safe & Reliable Travel</span>
+        <h2 class="section-title">Coastal Transport Facilities</h2>
+        <p style="text-align: center; max-width: 600px; margin: -0.5rem auto 3rem;">Pinkey offers secure, comfortable, and air-conditioned shuttle transfers between Nairobi and Mombasa. Sit back and enjoy a smooth, worry-free ride.</p>
+      </div>
+      
+      <div class="transport-grid">
+        <div class="transport-visual">
+          <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=800&q=80" alt="PiNKeY 19 Luxury Transport Shuttle Van">
+          <div class="transport-badge">
+            <span class="badge-icon">🚐</span>
+            <div>
+              <h4>Premium Shuttle</h4>
+              <p>Safe • Comfortable • Reliable</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="transport-content">
+          <div class="transport-header-row">
+            <span class="transport-tag">Shuttle Service</span>
+            <span class="transport-price">KES 3,000 <small>per person</small></span>
+          </div>
+          <h3>Nairobi ⇄ Mombasa Transport Shuttle</h3>
+          <p>Whether you are arriving for a relaxing stay at our coastal cottages or planning a day of marine excursions, we ensure your journey is seamless. Our door-to-door transfer shuttles run regularly, featuring spacious seating, high-power cooling AC, and certified professional drivers who know the coastal highway inside out.</p>
+          
+          <ul class="transport-features">
+            <li>
+              <span class="feature-icon-check">✔</span>
+              <div>
+                <strong>Safe & Fully Insured:</strong>
+                <span>Regular mechanical inspections and full transit insurance.</span>
+              </div>
+            </li>
+            <li>
+              <span class="feature-icon-check">✔</span>
+              <div>
+                <strong>Comfortable Rides:</strong>
+                <span>Modern air conditioning, adjustable seats, and phone chargers.</span>
+              </div>
+            </li>
+            <li>
+              <span class="feature-icon-check">✔</span>
+              <div>
+                <strong>Reliable Scheduled Pickups:</strong>
+                <span>Punctual departures and direct drop-offs at your destination.</span>
+              </div>
+            </li>
+            <li>
+              <span class="feature-icon-check">✔</span>
+              <div>
+                <strong>WhatsApp Group Sync:</strong>
+                <span>Live coordinates and real-time updates from your driver.</span>
+              </div>
+            </li>
+          </ul>
+          
+          <button id="book-shuttle-cta" class="btn btn-accent btn-book-shuttle" type="button">Book Transport Shuttle →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Testimonials Section -->
   <section id="testimonials" class="testimonials-section">
     <div class="container">
@@ -631,7 +722,7 @@ app.innerHTML = `
                   <span class="form-error" id="error-activity-date">Please pick a future date</span>
                 </div>
                 <div class="form-group">
-                  <label for="dining-time">Optional Dining Time</label>
+                  <label for="dining-time">Optional Dining Time <span class="header-note">(Book min 1hr prior)</span></label>
                   <select id="dining-time">
                     <option value="" selected>Not Dining / Select Time</option>
                     <option value="12:00">12:00 PM (Lunch)</option>
@@ -643,6 +734,7 @@ app.innerHTML = `
                     <option value="20:00">8:00 PM</option>
                     <option value="21:00">9:00 PM</option>
                   </select>
+                  <span class="form-error" id="error-dining-time">Dining must be booked at least 1 hour in advance</span>
                 </div>
               </div>
             </div>
@@ -709,7 +801,7 @@ app.innerHTML = `
             <!-- Activity Cart Selection -->
             <div class="planner-card activity-selector-card collapsed-state">
               <h3 class="planner-card-title activity-toggle-title">
-                <span>🛶 Select Coastal Excursions</span>
+                <span>🛶 Select Excursions & Transport</span>
                 <span class="mobile-accordion-arrow">▼</span>
               </h3>
               <div class="cart-activities-grid">
@@ -867,7 +959,10 @@ const cart: CartState = {
 
 // Initialize Cart State dynamically
 cottages.forEach(c => {
-  cart.cottages[c.id] = { selected: false, quantity: 1 };
+  let defaultQty = 1;
+  if (c.id === 'cot-3') defaultQty = 3;
+  if (c.id === 'cot-4') defaultQty = 4;
+  cart.cottages[c.id] = { selected: false, quantity: defaultQty };
 });
 
 activities.forEach(a => {
@@ -898,13 +993,27 @@ const renderCartCottages = () => {
   container.innerHTML = cottages.map(c => {
     const isSelected = cart.cottages[c.id].selected;
     const qty = cart.cottages[c.id].quantity;
+    
+    let limitText = '';
+    let disableQtyControl = false;
+    if (c.id === 'cot-1' || c.id === 'cot-2') {
+      limitText = ' (Max 1 room)';
+      disableQtyControl = true;
+    } else if (c.id === 'cot-3') {
+      limitText = ' (Fixed 3 rooms)';
+      disableQtyControl = true;
+    } else if (c.id === 'cot-4') {
+      limitText = ' (Fixed 4 rooms)';
+      disableQtyControl = true;
+    }
+    
     return `
       <div class="cart-item-card cottage-cart-card ${isSelected ? 'active' : ''}" data-id="${c.id}">
         <div class="cart-item-header">
           <label class="cart-item-checkbox-wrapper">
             <input type="checkbox" class="cart-item-select" data-type="cottage" data-id="${c.id}" ${isSelected ? 'checked' : ''}>
             <span class="checkbox-custom"></span>
-            <span class="cart-item-name">🏡 ${c.name}</span>
+            <span class="cart-item-name">🏡 ${c.name}${limitText}</span>
           </label>
           <span class="cart-item-price">${c.price}/night</span>
         </div>
@@ -912,11 +1021,15 @@ const renderCartCottages = () => {
           <div class="cart-item-controls">
             <div class="qty-control-row">
               <span class="control-label">Number of Rooms:</span>
-              <div class="quantity-controller">
-                <button type="button" class="btn-qty btn-qty-minus" data-type="cottage" data-id="${c.id}">−</button>
-                <span class="qty-display">${qty}</span>
-                <button type="button" class="btn-qty btn-qty-plus" data-type="cottage" data-id="${c.id}">+</button>
-              </div>
+              ${disableQtyControl ? `
+                <span class="qty-locked-badge">${qty} Room${qty > 1 ? 's' : ''}</span>
+              ` : `
+                <div class="quantity-controller">
+                  <button type="button" class="btn-qty btn-qty-minus" data-type="cottage" data-id="${c.id}">−</button>
+                  <span class="qty-display">${qty}</span>
+                  <button type="button" class="btn-qty btn-qty-plus" data-type="cottage" data-id="${c.id}">+</button>
+                </div>
+              `}
             </div>
           </div>
         ` : ''}
@@ -933,20 +1046,6 @@ const renderCartActivities = () => {
   container.innerHTML = activities.map(a => {
     const isSelected = cart.activities[a.id].selected;
     const qty = cart.activities[a.id].participants;
-    const isNonCitizen = cart.activities[a.id].isNonCitizen;
-    
-    let specialOptionsHtml = '';
-    if (a.id === 'act-9' && isSelected) { // Wasini Island Day Trip
-      specialOptionsHtml = `
-        <div class="wasini-options">
-          <label class="wasini-toggle-label">
-            <input type="checkbox" class="wasini-citizen-checkbox" data-id="${a.id}" ${isNonCitizen ? 'checked' : ''}>
-            <span class="toggle-custom-btn"></span>
-            <span>Non-Citizen Rates (KSH. 8,500 vs Citizen KSH. 4,500)</span>
-          </label>
-        </div>
-      `;
-    }
     
     return `
       <div class="cart-item-card activity-cart-card ${isSelected ? 'active' : ''}" data-id="${a.id}">
@@ -960,7 +1059,6 @@ const renderCartActivities = () => {
         </div>
         ${isSelected ? `
           <div class="cart-item-controls">
-            ${specialOptionsHtml}
             <div class="qty-control-row">
               <span class="control-label">Participants:</span>
               <div class="quantity-controller">
@@ -1000,7 +1098,9 @@ const updateCartTotal = () => {
     if (item && item.selected) {
       selectedItemsCount++;
       const pricePerNight = parsePrice(c.price);
-      const subtotal = pricePerNight * nights * item.quantity;
+      // Multiplier is 1 for whole-house rentals (3-bedroom and VIP villa), otherwise item.quantity
+      const multiplier = (c.id === 'cot-3' || c.id === 'cot-4') ? 1 : item.quantity;
+      const subtotal = pricePerNight * nights * multiplier;
       total += subtotal;
       
       detailsHtml += `
@@ -1038,10 +1138,7 @@ const updateCartTotal = () => {
           </div>
         `;
       } else {
-        let pricePerPerson = parsePrice(a.price);
-        if (a.id === 'act-9') { // Wasini special
-          pricePerPerson = item.isNonCitizen ? 8500 : 4500;
-        }
+        const pricePerPerson = parsePrice(a.price);
         const subtotal = pricePerPerson * item.participants;
         total += subtotal;
         
@@ -1053,7 +1150,6 @@ const updateCartTotal = () => {
                 <div class="summary-item-title">${a.name}</div>
                 <div class="summary-item-desc">
                   ${item.participants} participant${item.participants > 1 ? 's' : ''} 
-                  ${a.id === 'act-9' ? (item.isNonCitizen ? '(Non-Citizen)' : '(Citizen)') : ''}
                 </div>
               </div>
             </div>
@@ -1294,13 +1390,18 @@ const renderActivities = () => {
   if (!activitiesGrid) return;
   activitiesGrid.innerHTML = activities.map(act => `
     <div class="activity-card">
-      <div class="activity-header-row">
-        <span class="activity-badge-tag">${act.badge}</span>
-        <span class="activity-price">${act.price}</span>
+      <div class="activity-card-img">
+        <img src="${act.image}" alt="${act.name}">
       </div>
-      <h3>${act.name}</h3>
-      <p>${act.description}</p>
-      <a href="#reservation" class="activity-book-link" data-activity="${act.name}">Book Excursion →</a>
+      <div class="activity-card-content">
+        <div class="activity-header-row">
+          <span class="activity-badge-tag">${act.badge}</span>
+          <span class="activity-price">${act.price}</span>
+        </div>
+        <h3>${act.name}</h3>
+        <p>${act.description}</p>
+        <a href="#reservation" class="activity-book-link" data-activity="${act.name}">Book Excursion →</a>
+      </div>
     </div>
   `).join('');
 
@@ -1342,6 +1443,43 @@ const renderActivities = () => {
 };
 
 renderActivities();
+
+// 6b. Bind Transport Shuttle Booking CTA
+const bookShuttleBtn = document.querySelector('#book-shuttle-cta');
+if (bookShuttleBtn) {
+  bookShuttleBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    // Transport Shuttle activity id is 'act-12'
+    const transportAct = activities.find(a => a.id === 'act-12');
+    if (transportAct) {
+      cart.activities[transportAct.id].selected = true;
+      
+      // Expand the selector card if collapsed on mobile
+      const parentCard = document.querySelector('.activity-selector-card');
+      if (parentCard) parentCard.classList.remove('collapsed-state');
+      
+      // Default participant count to current selected party size
+      const partySize = parseInt(document.querySelector<HTMLSelectElement>('#booking-guests')!.value, 10);
+      cart.activities[transportAct.id].participants = partySize;
+      
+      renderCartActivities();
+      updateCartTotal();
+      
+      // Scroll to reservation section
+      const reservationSection = document.querySelector('#reservation')!;
+      reservationSection.scrollIntoView({ behavior: 'smooth' });
+      
+      // Flash animation
+      setTimeout(() => {
+        const card = document.querySelector(`.cart-item-card[data-id="${transportAct.id}"]`);
+        if (card) {
+          card.classList.add('pulse-highlight');
+          setTimeout(() => card.classList.remove('pulse-highlight'), 2000);
+        }
+      }, 800);
+    }
+  });
+}
 
 // 7. Testimonials
 const renderTestimonials = () => {
@@ -1408,29 +1546,35 @@ startTestimonialSlider();
 
 // 8. Setup Date Limits
 const setupDateLimits = () => {
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  const mm = String(today.getMonth() + 1).padStart(2, '0');
+  const dd = String(today.getDate()).padStart(2, '0');
+  const todayDateString = `${yyyy}-${mm}-${dd}`;
+  
   const tomorrow = new Date();
   tomorrow.setDate(tomorrow.getDate() + 1);
-  const yyyy = tomorrow.getFullYear();
-  const mm = String(tomorrow.getMonth() + 1).padStart(2, '0');
-  const dd = String(tomorrow.getDate()).padStart(2, '0');
-  
-  const minDateString = `${yyyy}-${mm}-${dd}`;
+  const yTom = tomorrow.getFullYear();
+  const mTom = String(tomorrow.getMonth() + 1).padStart(2, '0');
+  const dTom = String(tomorrow.getDate()).padStart(2, '0');
+  const tomorrowDateString = `${yTom}-${mTom}-${dTom}`;
   
   const cIn = document.querySelector<HTMLInputElement>('#cottage-checkin')!;
   const cOut = document.querySelector<HTMLInputElement>('#cottage-checkout')!;
   const aDate = document.querySelector<HTMLInputElement>('#activity-date')!;
   
-  if (cIn) { cIn.min = minDateString; cIn.value = minDateString; }
-  if (cOut) {
-    const dayAfterTomorrow = new Date();
-    dayAfterTomorrow.setDate(dayAfterTomorrow.getDate() + 2);
-    const yOut = dayAfterTomorrow.getFullYear();
-    const mOut = String(dayAfterTomorrow.getMonth() + 1).padStart(2, '0');
-    const dOut = String(dayAfterTomorrow.getDate()).padStart(2, '0');
-    cOut.min = `${yOut}-${mOut}-${dOut}`;
-    cOut.value = `${yOut}-${mOut}-${dOut}`;
+  if (cIn) { 
+    cIn.min = todayDateString; 
+    cIn.value = todayDateString; 
   }
-  if (aDate) { aDate.min = minDateString; aDate.value = minDateString; }
+  if (cOut) {
+    cOut.min = tomorrowDateString;
+    cOut.value = tomorrowDateString;
+  }
+  if (aDate) { 
+    aDate.min = todayDateString; 
+    aDate.value = todayDateString; 
+  }
 };
 
 // 9. Initial Call to Bind and Setup Cart List
@@ -1451,6 +1595,10 @@ document.addEventListener('change', (e) => {
     
     if (type === 'cottage') {
       cart.cottages[id].selected = isChecked;
+      // Force cottage rooms based on capacity rules
+      if (id === 'cot-1' || id === 'cot-2') cart.cottages[id].quantity = 1;
+      if (id === 'cot-3') cart.cottages[id].quantity = 3;
+      if (id === 'cot-4') cart.cottages[id].quantity = 4;
       renderCartCottages();
     } else if (type === 'activity') {
       cart.activities[id].selected = isChecked;
@@ -1459,13 +1607,6 @@ document.addEventListener('change', (e) => {
       cart.activities[id].participants = partySize;
       renderCartActivities();
     }
-    updateCartTotal();
-  }
-  
-  if (target.classList.contains('wasini-citizen-checkbox')) {
-    const id = target.getAttribute('data-id')!;
-    const isChecked = (target as HTMLInputElement).checked;
-    cart.activities[id].isNonCitizen = isChecked;
     updateCartTotal();
   }
 });
@@ -1557,6 +1698,7 @@ bookingForm.addEventListener('submit', (e) => {
   const errorName = document.querySelector<HTMLSpanElement>('#error-name')!;
   const errorEmail = document.querySelector<HTMLSpanElement>('#error-email')!;
   const errorPhone = document.querySelector<HTMLSpanElement>('#error-phone')!;
+  const errorDiningTime = document.querySelector<HTMLSpanElement>('#error-dining-time')!;
   
   let isValid = true;
   
@@ -1603,11 +1745,30 @@ bookingForm.addEventListener('submit', (e) => {
     }
   }
   
-  // Validate activity date if activities selected
-  if (selectedActivityCount > 0) {
-    const aDate = document.querySelector<HTMLInputElement>('#activity-date')!;
-    const errorADate = document.querySelector<HTMLSpanElement>('#error-activity-date')!;
+  // Validate activity date if activities selected or dining time selected
+  const aDate = document.querySelector<HTMLInputElement>('#activity-date')!;
+  const errorADate = document.querySelector<HTMLSpanElement>('#error-activity-date')!;
+  if (selectedActivityCount > 0 || diningTimeVal) {
     if (!aDate.value) { errorADate.style.display = 'block'; isValid = false; }
+  }
+  
+  // Validate dining time 1 hour advance booking limit
+  if (diningTimeVal && aDate.value) {
+    const todayStr = new Date().toISOString().split('T')[0];
+    if (aDate.value === todayStr) {
+      const [hours, minutes] = diningTimeVal.split(':').map(Number);
+      const selectedTime = new Date();
+      selectedTime.setHours(hours, minutes, 0, 0);
+      
+      const oneHourFromNow = new Date();
+      oneHourFromNow.setHours(oneHourFromNow.getHours() + 1);
+      
+      if (selectedTime < oneHourFromNow) {
+        errorDiningTime.innerText = 'Dining must be booked at least 1 hour in advance.';
+        errorDiningTime.style.display = 'block';
+        isValid = false;
+      }
+    }
   }
   
   if (isValid) {
@@ -1630,7 +1791,7 @@ bookingForm.addEventListener('submit', (e) => {
     }
     if (selectedActivityCount > 0) {
       const aDateVal = document.querySelector<HTMLInputElement>('#activity-date')!.value;
-      whatsappMsg += `- Excursions Date: ${aDateVal}\n`;
+      whatsappMsg += `- Excursions & Transport Date: ${aDateVal}\n`;
     }
     if (diningTimeVal) {
       const aDateVal = document.querySelector<HTMLInputElement>('#activity-date')!.value || 'As scheduled';
@@ -1647,9 +1808,10 @@ bookingForm.addEventListener('submit', (e) => {
         const item = cart.cottages[c.id];
         if (item && item.selected) {
           const price = parsePrice(c.price);
-          const subtotal = price * nights * item.quantity;
+          const multiplier = (c.id === 'cot-3' || c.id === 'cot-4') ? 1 : item.quantity;
+          const subtotal = price * nights * multiplier;
           total += subtotal;
-          itemizedDetails += `- ${c.name} (Qty: ${item.quantity}) @ KSH. ${price.toLocaleString()}/night\n`;
+          itemizedDetails += `- ${c.name} (${item.quantity} Room${item.quantity > 1 ? 's' : ''}) @ KSH. ${price.toLocaleString()}/night\n`;
           itemizedDetails += `  Subtotal (${nights} Night${nights > 1 ? 's' : ''}): KSH. ${subtotal.toLocaleString()}\n`;
         }
       });
@@ -1658,20 +1820,17 @@ bookingForm.addEventListener('submit', (e) => {
     
     // Activities Selection WhatsApp format
     if (selectedActivityCount > 0) {
-      itemizedDetails += `*🛶 GUIDED EXCURSIONS:*\n`;
+      itemizedDetails += `*🛶 GUIDED EXCURSIONS & TRANSPORT:*\n`;
       activities.forEach(a => {
         const item = cart.activities[a.id];
         if (item && item.selected) {
           if (a.price.toLowerCase().includes('inquiry')) {
             itemizedDetails += `- ${a.name} (Qty: ${item.participants}) -> Inquiry Pending\n`;
           } else {
-            let price = parsePrice(a.price);
-            if (a.id === 'act-9') {
-              price = item.isNonCitizen ? 8500 : 4500;
-            }
+            const price = parsePrice(a.price);
             const subtotal = price * item.participants;
             total += subtotal;
-            itemizedDetails += `- ${a.name} (Qty: ${item.participants} ${a.id === 'act-9' ? (item.isNonCitizen ? 'Non-Citizen' : 'Citizen') : ''}) @ KSH. ${price.toLocaleString()}/person\n`;
+            itemizedDetails += `- ${a.name} (Qty: ${item.participants}) @ KSH. ${price.toLocaleString()}/person\n`;
             itemizedDetails += `  Subtotal: KSH. ${subtotal.toLocaleString()}\n`;
           }
         }
@@ -1717,7 +1876,10 @@ bookingForm.addEventListener('submit', (e) => {
     // Reset cart selections after successful checkout submission
     cottages.forEach(c => {
       cart.cottages[c.id].selected = false;
-      cart.cottages[c.id].quantity = 1;
+      let defaultQty = 1;
+      if (c.id === 'cot-3') defaultQty = 3;
+      if (c.id === 'cot-4') defaultQty = 4;
+      cart.cottages[c.id].quantity = defaultQty;
     });
     activities.forEach(a => {
       cart.activities[a.id].selected = false;

@@ -1307,12 +1307,11 @@ footer {
 .activity-card {
   background-color: var(--bg-card);
   border: 1px solid var(--border-light);
-  padding: 1.75rem;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
+  overflow: hidden;
   transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
 }
 
@@ -1320,6 +1319,32 @@ footer {
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
   border-color: var(--accent-gold);
+}
+
+.activity-card-img {
+  width: 100%;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  position: relative;
+}
+
+.activity-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.activity-card:hover .activity-card-img img {
+  transform: scale(1.05);
+}
+
+.activity-card-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex-grow: 1;
 }
 
 .activity-header-row {
@@ -1808,6 +1833,17 @@ footer {
   color: var(--text-primary);
 }
 
+.qty-locked-badge {
+  background-color: rgba(224, 159, 0, 0.1);
+  color: var(--accent-gold);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(224, 159, 0, 0.3);
+  display: inline-block;
+}
+
 /* Wasini Special Citizenship Toggle */
 .wasini-options {
   background-color: var(--bg-card);
@@ -2181,6 +2217,197 @@ footer {
   /* Hide accordion arrow on desktop */
   .planner-card-title .mobile-accordion-arrow {
     display: none !important;
+  }
+}
+
+/* ==========================================================================
+   PiNKeY 19 TRANSPORT SERVICES SECTION STYLES
+   ========================================================================== */
+
+.transport-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1.3fr;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.transport-visual {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 4/3;
+  width: 100%;
+}
+
+.transport-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.transport-visual:hover img {
+  transform: scale(1.05);
+}
+
+.transport-badge {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  background-color: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  padding: 1.25rem 1.75rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-normal);
+  max-width: 85%;
+}
+
+.transport-badge:hover {
+  transform: translateY(-5px);
+}
+
+.transport-badge .badge-icon {
+  font-size: 2.25rem;
+}
+
+.transport-badge h4 {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  margin-bottom: 0.15rem;
+}
+
+.transport-badge p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.transport-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.transport-header-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.transport-tag {
+  background-color: rgba(243, 88, 44, 0.1);
+  color: var(--accent-coral);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-full);
+}
+
+.transport-price {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+}
+
+.transport-price small {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+.transport-content h3 {
+  font-size: 2.25rem;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.transport-content p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.transport-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.transport-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.feature-icon-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: rgba(43, 178, 123, 0.1);
+  color: #2bb27b;
+  font-size: 0.8rem;
+  font-weight: bold;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.transport-features li strong {
+  display: block;
+  font-size: 0.98rem;
+  color: var(--text-primary);
+  margin-bottom: 0.15rem;
+}
+
+.transport-features li span {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+}
+
+.btn-book-shuttle {
+  align-self: flex-start;
+  margin-top: 1rem;
+  padding: 0.85rem 2rem;
+}
+
+/* Responsiveness for Transport Section */
+@media (max-width: 1024px) {
+  .transport-grid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+  
+  .transport-visual {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .transport-content h3 {
+    font-size: 1.85rem;
+  }
+  
+  .transport-badge {
+    bottom: 1rem;
+    left: 1rem;
+    padding: 1rem;
   }
 }
 
